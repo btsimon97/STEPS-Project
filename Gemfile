@@ -45,3 +45,8 @@ group :development do
   gem 'spring'
 end
 
+group :production do
+  gem 'activerecord-sqlserver-adapter'
+  gem 'ruby-odbc'
+  gem 'tiny_tds', '0.7.0'
+end
