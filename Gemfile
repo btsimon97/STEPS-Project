@@ -37,6 +37,7 @@ group :development, :test do
   gem 'byebug'
   gem 'minitest-reporters'
   gem 'guard'
+  gem 'guard-minitest'
 end
 
 group :development do
