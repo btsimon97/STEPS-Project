@@ -8,4 +8,7 @@ class User < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   has_secure_password
   validates :password, presence: true, length: { minimum: 8 }
+  def fullname
+    "#{first_name} #{last_name}"
+  end
 end
