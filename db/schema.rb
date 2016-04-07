@@ -24,6 +24,6 @@ ActiveRecord::Schema.define(version: 20160407030429) do
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["user_id_number"], name: "index_users_on_user_id_number"
+  add_index "users", ["user_id_number"], name: "index_users_on_user_id_number", unique: true
 
 end
