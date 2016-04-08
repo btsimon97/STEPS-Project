@@ -41,4 +41,26 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     assert_equal email, @user.email
     assert_equal user_id_number, @user.user_id_number
   end
+  test "successful edit with friendly forwarding" do
+    get edit_user_path(@user)
+    log_in_as(@user)
+    assert_redirected_to edit_user_path(@user)
+    first_name =     "Foo"
+    last_name =      "Bar"
+    user_id_number = 010101
+    email =          "foo@bar.com"
+    patch user_path(@user), user: { first_name:            first_name,
+                                    last_name:             last_name,
+                                    user_id_number:        user_id_number,
+                                    email:                 email,
+                                    password:              "",
+                                    password_confirmation: "" }
+    assert_not flash.empty?
+    assert_redirected_to @user
+    @user.reload
+    assert_equal first_name,     @user.first_name
+    assert_equal last_name,      @user.last_name
+    assert_equal user_id_number, @user.user_id_number
+    assert_equal email,          @user.email
+  end
 end
