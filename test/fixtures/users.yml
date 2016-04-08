@@ -6,3 +6,10 @@ howard:
   user_id_number: 987654
   email: michael@example.com
   password_digest: <%= User.digest('password') %>
+
+blaine:
+  first_name:     Blaine
+  last_name:      Stacks
+  user_id_number: 897351
+  email:          blaine.stacks@cardiff.net
+  password_digest: <%= User.digest('password') %>
