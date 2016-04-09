@@ -13,3 +13,12 @@ blaine:
   user_id_number: 897351
   email:          blaine.stacks@cardiff.net
   password_digest: <%= User.digest('password') %>
+
+<% 32.times do |n| %>
+user_<%= n %>:
+  first_name: <%= "User-first #{n}" %>
+  last_name:  <%= "User-last #{n}"  %>
+  user_id_number: <%= "#{n}" %>
+  email: <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
