@@ -95,3 +95,17 @@ footer {
     }
   }
 }
+
+/* devise alerts */
+.alert-alert {
+  @extend .alert-warning;
+}
+
+.alert-notice {
+  @extend .alert-info;
+  ul {
+    li {
+      list-style-type: none;
+    }
+  }
+}
