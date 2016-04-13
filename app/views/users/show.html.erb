@@ -1,1 +1,3 @@
-<%= @user.fullname %>
+<%= provide(:title, @user.fullname) %>
+<h1><%= @user.fullname %></h1>
+<%= image_tag(current_user.avatar.url(:medium), :class => "round-image-250") %>
