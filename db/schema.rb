@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160412183711) do
+ActiveRecord::Schema.define(version: 20160413025043) do
 
   create_table "users", force: :cascade do |t|
     t.string   "first_name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20160412183711) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "subject_area"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
