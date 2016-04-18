@@ -17,4 +17,9 @@ class User < ActiveRecord::Base
   def fullname 
     "#{first_name} #{last_name}"
   end
+
+  def self.subject
+  ["CTE", "ESE", "Language Arts", "Mathematics", 
+   "Physical Education", "Reading", "Science", "Social Studies"]
+  end
 end
