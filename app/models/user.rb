@@ -23,4 +23,30 @@ class User < ActiveRecord::Base
   ["CTE", "ESE", "Language Arts", "Mathematics", 
    "Physical Education", "Reading", "Science", "Social Studies"]
   end
+  
+  def self.middle_schools
+    require 'csv'
+    file = "#{Rails.root}/app/models/school_list.csv"
+    middle_schools = []
+    if File.exist?(file)
+      list = CSV.foreach(file, :col_sep => ",", :headers => true) do |row|
+        middle_schools << row[0]
+      end
+    end
+    middle_schools.compact!
+    return middle_schools
+  end
+
+  def self.high_schools
+    require 'csv'
+    file = "#{Rails.root}/app/models/school_list.csv"
+    high_schools = []
+    if File.exist?(file)
+      list = CSV.foreach(file, :col_sep => ",", :headers => true) do |row|
+        high_schools << row[2]
+      end
+    end
+    high_schools.compact!
+    return high_schools
+  end
 end
