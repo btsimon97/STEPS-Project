@@ -1,12 +1,23 @@
 <%= provide(:title, @user.fullname) %>
-<h1><%= @user.fullname %></h1>
 <div class="row">
-<div class="col-md-4">
-<%= image_tag(@user.avatar.url(:medium), :class => "round-image-250") %>
-</div>
-<div class="col-md-6 center jumbotron">
-  <h2>About <%= @user.first_name %></h2>
-  <p><%= @user.subject_area %> Instructor</p>
-  <p></p>
-</div>
+<aside class="col-md-4">
+  <section class="user_info">
+    <h1>
+      <%= image_tag(@user.avatar.url(:medium), :class => "round-image-250") %>
+      <%= @user.fullname %>
+    </h1>
+      <% unless @user.subject_area.blank? %>
+        <h2><%= @user.subject_area %> Instructor</h2>
+      <% end %>
+  </section>
+</aside>
+<div class="col-md-8 jumbotron">
+  <% if @user.courses.any? %>
+    <h3><%= @user.first_name %>'s Courses (<%= @user.courses.count %>)</h3>
+      <ol class="courses">
+        <%= render @courses %>
+      </ol>
+    <%= will_paginate @courses %>
+    <% end %>
+  </div>
 </div>

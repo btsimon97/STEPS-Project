@@ -1,8 +1,5 @@
 class User < ActiveRecord::Base
-  has_many :course_teachers
-  has_many :course_students
-  has_many :teaching_courses, through: :course_teachers
-  has_many :attending_courses, through: :course_students
+  has_many :courses
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
