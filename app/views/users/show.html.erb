@@ -9,6 +9,12 @@
       <% unless @user.subject_area.blank? %>
         <h2><%= @user.subject_area %> Instructor</h2>
       <% end %>
+      <% unless @user.instructional_level.blank? %>
+        <h2>Level: <%= @user.instructional_level %></h2>
+      <% end %>
+      <% unless @user.school_name.blank? %>
+        <h2>School: <%= @user.school_name %></h2>
+      <% end %>
   </section>
 </aside>
 <div class="col-md-8 jumbotron">

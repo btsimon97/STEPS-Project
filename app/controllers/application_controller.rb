@@ -17,5 +17,7 @@ class ApplicationController < ActionController::Base
       devise_parameter_sanitizer.for(:account_update) << :user_number
       devise_parameter_sanitizer.for(:account_update) << :avatar
       devise_parameter_sanitizer.for(:account_update) << :subject_area
+      devise_parameter_sanitizer.for(:account_update) << :instructional_level
+      devise_parameter_sanitizer.for(:account_update) << :school_name
     end
   end

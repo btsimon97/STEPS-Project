@@ -1,4 +1,7 @@
 <li>
   <%= image_tag(user.avatar.url(:thumb), :class => "round-image-50") %>
   <%= link_to user.fullname, user %>
+  <%= user.subject_area %>
+  <%= user.instructional_level %>
+  <%= user.school_name %>
 </li>

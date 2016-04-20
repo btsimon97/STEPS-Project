@@ -20,8 +20,12 @@ class User < ActiveRecord::Base
   end
 
   def self.subject
-  ["CTE", "ESE", "Language Arts", "Mathematics", 
-   "Physical Education", "Reading", "Science", "Social Studies"]
+    ["CTE", "ESE", "Language Arts", "Mathematics", 
+    "Physical Education", "Reading", "Science", "Social Studies"]
+  end
+
+  def self.instruction_level
+    ["Middle School (6-8)", "High School (9-12)"]
   end
   
   def self.middle_schools
