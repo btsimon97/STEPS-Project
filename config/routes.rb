@@ -8,8 +8,10 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'signup' => 'users#new'
   get 'users/:id' => 'users#show'
+  get 'courses/create' => 'courses#create'
   authenticate :user do  
     resources :users, only: [:index, :show]
+    resources :courses
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

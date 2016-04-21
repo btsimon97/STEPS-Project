@@ -40,9 +40,9 @@
       </div>
 
       <div class="form-group field">
-        <%= f.label :school_name, "#{'Middle School Name' if @user.instructional_level.include? '(6-8)'}#{'High School Name' if @user.instructional_level.include? '(9-12)'}", class: "#{'display-none' if @user.instructional_level.empty?}" %>
-        <%= f.select(:school_name, options_for_select(User.middle_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.exclude? '(6-8)'}"}) %>
-        <%= f.select(:school_name, options_for_select(User.high_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.exclude? '(9-12)'}"}) %>
+        <%= f.label :school_name, "#{'Middle School Name' if @user.instructional_level.to_s.include? '(6-8)'}#{'High School Name' if @user.instructional_level.to_s.include? '(9-12)'}", class: "#{'display-none' if @user.instructional_level.to_s.empty?}" %>
+        <%= f.select(:school_name, options_for_select(User.middle_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.to_s.exclude? '(6-8)'}"}) %>
+        <%= f.select(:school_name, options_for_select(User.high_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.to_s.exclude? '(9-12)'}"}) %>
       </div>
       <div class="form-group field">
         <%= f.label :email %><br />

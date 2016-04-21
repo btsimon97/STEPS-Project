@@ -17,13 +17,13 @@
       <% end %>
   </section>
 </aside>
-<div class="col-md-8 jumbotron">
-  <% if @user.courses.any? %>
+<div class="col-md-8">
+  <% unless @user.courses.any? %>
     <h3><%= @user.first_name %>'s Courses (<%= @user.courses.count %>)</h3>
       <ol class="courses">
         <%= render @courses %>
       </ol>
     <%= will_paginate @courses %>
-    <% end %>
+  <% end %>
   </div>
 </div>
