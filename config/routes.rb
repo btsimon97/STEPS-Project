@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   get 'courses/create' => 'courses#create'
   authenticate :user do  
     resources :users, only: [:index, :show]
-    resources :courses
+    resources :courses, only: [:create, :destroy, :show]
   end
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

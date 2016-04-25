@@ -1,0 +1,14 @@
+    <h1>
+      <%= image_tag(current_user.avatar.url(:medium), :class => "round-image-250") %>
+      <%= current_user.fullname %>
+    </h1>
+      <% unless current_user.subject_area.blank? %>
+        <h2><%= current_user.subject_area %> Instructor</h2>
+      <% end %>
+      <% unless current_user.instructional_level.blank? %>
+        <h2>Level: <%= current_user.instructional_level %></h2>
+      <% end %>
+      <% unless current_user.school_name.blank? %>
+        <h2>School: <%= current_user.school_name %></h2>
+      <% end %>
+

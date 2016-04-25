@@ -17,13 +17,21 @@
       <% end %>
   </section>
 </aside>
-<div class="col-md-8">
-  <% unless @user.courses.any? %>
+<div class="col-md-8 center well">
+  <% if @user.courses.any? %>
     <h3><%= @user.first_name %>'s Courses (<%= @user.courses.count %>)</h3>
       <ol class="courses">
         <%= render @courses %>
       </ol>
     <%= will_paginate @courses %>
+  <% else %>
+    <h3>No Courses Found</h3>
+    <p>
+      <%= @user.first_name %>  doesn't have any courses yet. 
+    </p>
+    <p>
+      If you are <%= @user.first_name %>, Click Here to start a new course.
+    </p>
   <% end %>
   </div>
 </div>

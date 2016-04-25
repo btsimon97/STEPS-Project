@@ -1,0 +1,19 @@
+<div class="col-md-8 center well">
+  <h2>My Dashboard</h2>
+  <% if current_user.courses.any? %>
+    <h3>My Courses (<%= @user.courses.count %>)</h3>
+      <ol class="courses">
+        <%= render current_user.courses %>
+      </ol>
+    <%= will_paginate current_user.courses %>
+  <% else %>
+    <h3>No Courses Found</h3>
+    <p>
+      <%= current_user.first_name %>! You haven't made any courses yet.
+    </p>
+    <p>
+      When you're ready, Click Here to start a new course.
+    </p>
+  <% end %>
+  </div>
+
