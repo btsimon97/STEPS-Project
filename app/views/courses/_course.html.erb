@@ -1,0 +1,7 @@
+<li id="course-<%= course.id %>">
+  <span class="course_name"><%= course.course_name %></span>
+  <span class="course_number"><%= course.course_sequence_number %></span>
+  <% if current_user == course.user %>
+    <%= link_to "Delete Course", course, method: :delete, data: { confirm: "This course and all of its enrollments will be permanetely erased and cannot be undone. Are you sure you want to delete this course?" } %>
+  <% end %>
+</li>
