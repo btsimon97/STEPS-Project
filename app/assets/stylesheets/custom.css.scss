@@ -189,7 +189,12 @@ footer {
 .courses {
   list-style: none;
   padding: 0;
-  li {
+  float: none;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: unset !important;
+  text-align: center !important;
+   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
@@ -199,16 +204,16 @@ footer {
   }
   .course_name {
     display: block;
-    margin-left: 60px;
+   // margin-left: 60px;
     img {
       display: block;
       padding: 5px 0;
     }
-  }
+  } 
   .course_number {
     color: $gray-light;
     display: block;
-    margin-left: 60px;
+   // margin-left: 60px;
   }
 }
 
@@ -225,3 +230,37 @@ footer {
       border: 0;
     }
   }
+
+table {
+  text-align: center;
+  th {
+  padding-left: 60px;
+  text-align: center !important;
+  }
+  td {
+    padding-left: 60px;
+  }
+}
+
+th .current {
+  padding-right: 12px;
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+
+th .asc:after {
+  content:"\f077";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 2px;
+}
+
+th .desc:after {
+  content:"\f078";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  margin-left: 2px;
+
+}

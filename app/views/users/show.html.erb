@@ -20,9 +20,16 @@
 <div class="col-md-8 center well">
   <% if @user.courses.any? %>
     <h3><%= @user.first_name %>'s Courses (<%= @user.courses.count %>)</h3>
-      <ol class="courses">
-        <%= render @courses %>
-      </ol>
+      <div class="table-responsive center-block">
+        <table class="courses table table-striped table-hover">
+          <tr>
+            <th><%= sortable "course name" %></th>
+            <th><%= sortable "period" %></th>
+            <th><%= sortable "sequence number" %></th>
+          </tr>
+          <%= render @courses %>
+        </table>
+      </div>
     <%= will_paginate @courses %>
   <% else %>
     <h3>No Courses Found</h3>

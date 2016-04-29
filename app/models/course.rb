@@ -6,5 +6,17 @@ class Course < ActiveRecord::Base
                                      length: { maximum: 8 },
                                      numericality: { only_integer: true, allow_nil: true },
                                      uniqueness: { message: "A Course with that sequence number already exists" }
+  validates :period, presence: true, 
+                     length: { maximum: 3 },
+                     numericality: { only_integer: true, allow_nil: true },
+                     uniqueness: { message: "You already have a course during this period" }
+
 #  default_scope -> { order(:course_name :desc) }
+
+  def self.period
+    ['01','02','03','04','05','06','07','08','11','12','13','14','21','22','23','24']
+  end
+
+
 end
+ 

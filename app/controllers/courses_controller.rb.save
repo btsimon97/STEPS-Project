@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: :create :destroy
   def new
     @course = Course.new
   end
@@ -10,7 +10,7 @@ class CoursesController < ApplicationController
       flash[:success] = "Course Created Successfully!"
       redirect_to current_user
     else
-      render 'new'
+      render 'create'
     end
   end
 
@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   private
 
     def course_params
-      params.require(:course).permit(:course_name , :course_sequence_number, :period)
+      params.require(:course).permit(:course_name , :course_sequence_number)
     end
 
     def correct_user
