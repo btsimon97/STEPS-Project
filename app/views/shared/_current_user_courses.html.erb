@@ -2,10 +2,7 @@
   <h2>My Dashboard</h2>
   <% if current_user.courses.any? %>
     <h3>My Courses (<%= current_user.courses.count %>)</h3>
-      <ol class="courses">
-          <%= render @courses %>
-      </ol>
-    <%= will_paginate @courses %>
+    <%= render 'shared/course_list' %>
   <% else %>
     <h3>No Courses Found</h3>
     <p>

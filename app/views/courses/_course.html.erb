@@ -1,6 +1,6 @@
 <tr id="course-<%= course.id %>">
-  <td class="course_name"><%= course.course_name %></td>
   <td class="course_period">Period <%= course.period %></td>
+  <td class="course_name"><%= course.course_name %></td>
   <td class="course_number"><%= course.course_sequence_number %></td>
   <% if current_user == course.user %>
     <td>

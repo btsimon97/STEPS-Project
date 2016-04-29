@@ -1,0 +1,13 @@
+      <div class="table-responsive center-block">
+        <table class="courses table table-striped table-hover">
+          <tr>
+            <th><%= sortable "period" %></th>
+            <th><%= sortable "course name" %></th>
+            <th><%= sortable "course sequence number" %></th>
+            <th>Manage Course</th>
+          </tr>
+          <%= render @courses %>
+        </table>
+      </div>
+    <%= will_paginate @courses %>
+

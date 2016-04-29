@@ -14,12 +14,12 @@ class UsersController < ApplicationController
   private
 
   def sort_column
-    Course.column_names.include?(params[:sort]) ? params[:sort] : :course_name
-    Course.column_names.include?(params[:sort]) ? params[:sort] : :period
-    Course.column_names.include?(params[:sort]) ? params[:sort] : :course_sequence_number.to_s
+    Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_name'
+    Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_sequence_number'
+    Course.column_names.include?(params[:sort]) ? params[:sort] : 'period'
   end
 
   def sort_direction
-    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "desc"
   end
 end
