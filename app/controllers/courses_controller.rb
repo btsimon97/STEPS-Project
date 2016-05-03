@@ -1,6 +1,6 @@
 class CoursesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_user, only: :destroy
+  before_action :correct_user, only: [:edit, :destroy]
   def new
     @course = Course.new
   end
@@ -22,6 +22,21 @@ class CoursesController < ApplicationController
 
   def show
   end
+
+  def edit
+    @course = current_user.courses.find_by(id: params[:id])
+  end
+
+  def update
+    @course = current_user.courses.find_by(id: params[:id])
+    if @course.update_attributes(course_params)
+      flash[:success] = "Course Updated"
+      redirect_to @course.user
+    else
+      render 'edit'
+    end
+  end
+
   private
 
     def course_params
