@@ -1,5 +1,5 @@
     <h1>
-      <%= image_tag(@user.avatar.url(:medium), :class => "round-image-250") %>
+      <%= image_tag(@user.avatar.url(:medium), :class => "round-image-250 center-block") %>
       <%= @user.fullname %>
     </h1>
       <% unless @user.subject_area.blank? %>
