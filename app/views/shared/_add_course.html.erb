@@ -1,3 +1,4 @@
+<% if current_user.courses.any? %>
 <p>
  If you need to add additional courses, click the button below. Remember, you can only assign one class to each period. Don't add courses for periods you are not teaching. 
 </p>
@@ -5,3 +6,4 @@
 <p>
 <%= link_to "Start a New Course", new_course_path, class: "btn btn-primary" %>
 </p>
+<% end %>
