@@ -1,13 +1,16 @@
 <% provide(:title, 'All users') %>
 <h1>All users</h1>
-
-<%= will_paginate %>
-
-<ul class="users">
-  <% @users.each do |user| %>
-    <%= render user %>
-  <% end %>
-</ul>
-
-<%= will_paginate %>
-
+<div class="table-responsive center-block">
+  <table class="users table table-hover table-striped table-bordered">
+    <tr>
+      <th></th>
+      <th><%= sortable "first name" %></th>
+      <th><%= sortable "last name" %></th>
+      <th><%= sortable "subject area" %></th>
+      <th><%= sortable "instructional level" %></th>
+      <th><%= sortable "school name" %></th>
+    </tr>
+    <%= render @users %>
+  </table>
+</div>
+<%= will_paginate @users %>

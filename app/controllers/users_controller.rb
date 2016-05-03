@@ -8,7 +8,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.paginate(page: params[:page])
+    @user = User.all
+    @users = User.order(sort_column + " " + sort_direction).paginate(page: params[:page])
   end
 
   private
@@ -17,6 +18,11 @@ class UsersController < ApplicationController
     Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_name'
     Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_sequence_number'
     Course.column_names.include?(params[:sort]) ? params[:sort] : 'period'
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'first_name'
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'last_name'
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'subject_area'
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'instructional_level'
+    User.column_names.include?(params[:sort]) ? params[:sort] : 'school_name'
   end
 
   def sort_direction

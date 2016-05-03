@@ -1,7 +1,8 @@
-<li>
-  <%= image_tag(user.avatar.url(:thumb), :class => "round-image-50") %>
-  <%= link_to user.fullname, user %>
-  <%= user.subject_area %>
-  <%= user.instructional_level %>
-  <%= user.school_name %>
-</li>
+<tr id="user-<%= user.id %>">
+  <td class="user_avatar"><%= image_tag(user.avatar.url(:thumb), :class => "round-image-50") %></td>
+  <td class="user_first_name"><%= link_to user.first_name, user %></td>
+  <td class="user_last_name"><%= link_to user.last_name, user %></td>
+  <td class="user_subject_area"><%= user.subject_area %></td>
+  <td class="user_instructional_level"><%= user.instructional_level %></td>
+  <td class="user_school_name"><%= user.school_name %></td>
+</tr>
