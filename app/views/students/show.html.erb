@@ -1,0 +1,28 @@
+<%= provide(:title, @user.fullname) %>
+<div class="row">
+<aside class="col-md-4">
+  <section class="user_info">
+    <h1>
+      <%= image_tag(@student.avatar.url(:medium), :class => "round-image-250 center-block") %>
+      <%= @student.fullname %>
+    </h1>
+      <% unless @user.school_name.blank? %>
+        <h2>School: <%= @user.school_name %></h2>
+      <% end %>
+  </section>
+</aside>
+<div class="col-md-8 center well">
+  <% if @student.courses.any? %>
+    <h2><%= @student.first_name %>'s Courses</h2>
+    <%= render 'shared/course_list' %>
+  <% else %>
+    <h3>No Courses Found</h3>
+    <p>
+      <%= @student.first_name %>  doesn't have any courses yet. 
+    </p>
+    <p>
+      If you are <%= @student.first_name %>, Go to your dashboard to start a new course.
+    </p>
+  <% end %>
+  </div>
+</div>

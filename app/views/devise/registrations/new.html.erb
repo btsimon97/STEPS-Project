@@ -1,20 +1,25 @@
 <% provide(:title, 'Sign up') %>
-<h1>Sign up</h1>
+<% if resource_name.to_s == 'user' %>
+  <h1>Teacher Sign Up</h1>
+  <p>
+    This is the sign-up page for new teachers at participating instituions
+    to create a new account. New admin accounts for the institution can be created
+    by contacting the STEPS Prject team.
+  </p>
+  <p>
+    In order for registration to be successful, your institution must be registered
+    with The STEPS Project. To register your institution with the project, please
+    contact the STEPS Project team.
+  </p>
+  <p>
+    Hillsborough County Public Schools Employees should enter their Lawson number
+    into the User Id field.
+  </p>
+<% end %>
 
-<p>This is the sign-up page for new teachers at participating instituions
-to create a new account. New admin accounts for the institution can be created
-by contacting the STEPS Prject team.
-</p>
-<p>
-In order for registration to be successful, your institution must be registered
-with The STEPS Project. To register your institution with the project, please
-contact the STEPS Project team.
-</p>
-<p>
-Hillsborough County Public Schools Employees should enter their Lawson number
-into the User Id field.
-</p>
-
+<% if resource_name.to_s == "student" %>
+  <h1>Student Sign Up</h1>
+<% end %>
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -30,8 +35,14 @@ into the User Id field.
       </div>
 
       <div class="form-group field">
-        <%= f.label :user_number, "User ID #" %>
-        <%= f.text_field :user_number, autofocus: true, class: 'form-control' %>
+        <% if resource_name.to_s == 'user' %>
+          <%= f.label :user_number, "User ID #" %>
+          <%= f.text_field :user_number, autofocus: true, class: 'form-control' %>
+        <% end %>
+        <% if resource_name.to_s == 'student' %>
+          <%= f.label :student_number, "Student ID #" %>
+          <%= f.text_field :student_number, autofocus: true, class: 'form-control' %>
+        <% end %>
       </div>
 
       <div class="form-group field">

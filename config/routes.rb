@@ -12,6 +12,13 @@ Rails.application.routes.draw do
   get 'users/:id' => 'users#show'
   authenticate :user do  
     resources :users, only: [:index, :show]
+    resources :students, only: [:index, :show]
+    resources :courses
+  end
+
+  authenticate :student do
+    resources :users, only: [:index, :show]
+    resources :students, only: [:index, :show]
     resources :courses
   end
   # The priority is based upon order of creation: first created -> highest priority.

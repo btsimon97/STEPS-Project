@@ -1,0 +1,8 @@
+    <h1>
+      <%= image_tag(current_student.avatar.url(:medium), :class => "round-image-250 center-block") %>
+      <%= current_student.fullname %>
+    </h1>
+      <% unless current_student.school_name.blank? %>
+        <h2>School: <%= current_student.school_name %></h2>
+      <% end %>
+
