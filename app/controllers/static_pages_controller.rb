@@ -21,6 +21,9 @@ class StaticPagesController < ApplicationController
   def news 
   end
 
+  def login
+  end
+
   private
 
   def sort_column

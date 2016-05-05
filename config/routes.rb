@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'contact' => 'static_pages#contact'
   get 'news' => 'static_pages#news'
   get 'signup' => 'users#new'
+  get 'login' => 'static_pages#login'
   get 'users/:id' => 'users#show'
   authenticate :user do  
     resources :users, only: [:index, :show]

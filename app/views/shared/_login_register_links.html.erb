@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="center-block">
+    <div class="col-md-4 col-md-offset-1">
+      <h3>New User?</h3>
+      <p>Click the corresponding button below to sign-up</p>
+      <%= link_to "Register as a Teacher", new_user_registration_path, class: "btn btn-lg btn-primary btn-registration" %>
+      <br />
+      <%= link_to "Register as a Student", new_student_registration_path, class: "btn btn-lg btn-info btn-registration" %>
+    </div>
+    <div class="col-md-4 col-md-offset-2">
+      <h3>Already a User?</h3>
+      <p>Navigate to your Sign-in Page Below</p>
+      <%= link_to "Teacher Log In", new_user_session_path, class:"btn btn-lg btn-primary btn-login" %>
+      <%= link_to "Student Log In", new_student_session_path, class:"btn btn-lg btn-info btn-login" %>
+    </div>
+  </div>
+</div>
+
