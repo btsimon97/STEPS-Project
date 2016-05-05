@@ -8,9 +8,13 @@
       <div class="form-group field">
         <%= f.label :avatar, class: 'control-label' %>
         <div class="row center">
-          <%= image_tag @user.avatar.url(:medium), class: "round-image-250" %>
+          <% if user_signed_in? %>
+            <%= image_tag @user.avatar.url(:medium), class: "round-image-250" %>
+          <% elsif student_signed_in? %>
+            <%= image_tag @student.avatar.url(:medium), class: "round-image-250" %>
+          <% end %>
         </div>
-      <span class="help-block">Add or Edit your User Avatar photo:</span> 
+      <span class="help-block">Add or Edit your Avatar photo:</span> 
       <%= f.file_field :avatar, class: "btn btn-default btn-file" %>
       </div>
 
@@ -25,25 +29,34 @@
       </div>
 
       <div class="form-group field">
-        <%= f.label :user_number, "User ID #" %>
-        <%= f.text_field :user_number, autofocus: true, class: "form-control" %>
+        <% if user_signed_in? %>
+          <%= f.label :user_number, "User ID #" %>
+          <%= f.text_field :user_number, autofocus: true, class: "form-control" %>
+        <% elsif student_signed_in? %>
+          <%= f.label :student_number, "Student ID #" %>
+          <%= f.text_field :student_number, autofocus: true, class: "form-control" %>
+        <% end %>
       </div>
 
-      <div class="form-group field">
-        <%= f.label :subject_area, "Subject Area" %>
-        <%= f.select(:subject_area, options_for_select(User.subject, @user.subject_area), {include_blank: true}, {autofocus: true, class: "form-control"}) %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="form-group field">
+          <%= f.label :subject_area, "Subject Area" %>
+          <%= f.select(:subject_area, options_for_select(User.subject, @user.subject_area), {include_blank: true}, {autofocus: true, class: "form-control"}) %>
+        </div>
 
-      <div class="form-group field">
-        <%= f.label :instructional_level, "Instructional Level" %>
-        <%= f.select(:instructional_level, options_for_select(User.instruction_level, @user.instructional_level), {include_blank: true}, {autofocus: true, class: "form-control"}) %>
-      </div>
+        <div class="form-group field">
+          <%= f.label :instructional_level, "Instructional Level" %>
+          <%= f.select(:instructional_level, options_for_select(User.instruction_level, @user.instructional_level), {include_blank: true}, {autofocus: true, class: "form-control"}) %>
+        </div>
+      <% end %>
 
-      <div class="form-group field">
-        <%= f.label :school_name, "#{'Middle School Name' if @user.instructional_level.to_s.include? '(6-8)'}#{'High School Name' if @user.instructional_level.to_s.include? '(9-12)'}", class: "#{'display-none' if @user.instructional_level.to_s.empty?}" %>
-        <%= f.select(:school_name, options_for_select(User.middle_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.to_s.exclude? '(6-8)'}"}) %>
-        <%= f.select(:school_name, options_for_select(User.high_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.to_s.exclude? '(9-12)'}"}) %>
-      </div>
+      <% if user_signed_in? %>
+        <div class="form-group field">
+          <%= f.label :school_name, "#{'Middle School Name' if @user.instructional_level.to_s.include? '(6-8)'}#{'High School Name' if @user.instructional_level.to_s.include? '(9-12)'}", class: "#{'display-none' if @user.instructional_level.to_s.empty?}" %>
+          <%= f.select(:school_name, options_for_select(User.middle_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.to_s.exclude? '(6-8)'}"}) %>
+          <%= f.select(:school_name, options_for_select(User.high_schools, @user.school_name), {include_blank: true}, {autofocus: true, class: "form-control #{'display-none' if @user.instructional_level.to_s.exclude? '(9-12)'}"}) %>
+        </div>
+      <% end %>
       <div class="form-group field">
         <%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true, class: "form-control" %>
