@@ -10,7 +10,8 @@ class Course < ActiveRecord::Base
   validates :period, presence: true, 
                      length: { maximum: 3 },
                      numericality: { only_integer: true, allow_nil: true }
-
+  scope :course_name, -> (course_name) { where course_name: course_name }
+  scope :course_sequence_number, -> (course_sequence_number) { where course_sequence_number: course_sequence_number }
 #  default_scope -> { order(:course_name :desc) }
 
   def self.period
