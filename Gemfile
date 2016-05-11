@@ -39,6 +39,8 @@ gem 'bootstrap-will_paginate'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'paperclip'
 gem 'font-awesome-sass'
+gem 'barby'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
