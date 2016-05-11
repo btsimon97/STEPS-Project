@@ -1,6 +1,7 @@
 class Student < ActiveRecord::Base
   has_and_belongs_to_many :courses
   has_many :teachers, :through => :courses
+  has_many :passes, dependent: :destroy
   before_destroy { courses.clear }
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable

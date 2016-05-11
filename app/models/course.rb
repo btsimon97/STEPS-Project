@@ -1,6 +1,7 @@
 class Course < ActiveRecord::Base
   belongs_to :user
   has_and_belongs_to_many :students
+  has_many :passes, dependent: :destroy
   before_destroy { students.clear }
   validates :course_name, presence: true, length: { maximum: 255 }
   validates :course_sequence_number, presence: true, 

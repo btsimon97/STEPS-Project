@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
   has_many :courses, dependent: :destroy
   has_many :students, through: :courses
+  has_many :passes, through: :courses
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
