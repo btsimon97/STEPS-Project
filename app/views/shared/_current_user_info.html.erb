@@ -11,4 +11,6 @@
       <% unless current_user.school_name.blank? %>
         <h2>School: <%= current_user.school_name %></h2>
       <% end %>
-
+      <% unless current_user.location.blank? %>
+        <h2>Location: <%= current_user.location %></h2>
+      <% end %>

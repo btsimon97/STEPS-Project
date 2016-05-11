@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true, length: { maximum: 25 }
   validates :last_name, presence: true, length: { maximum: 25 }
+  validates :location, length: { maximum: 50 }
   validates :user_number, presence: true,
                           numericality: { only_integer:true, allow_nil: true },
                           uniqueness: { message: "An account with that user id already exists" },
