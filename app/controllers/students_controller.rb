@@ -12,6 +12,11 @@ class StudentsController < ApplicationController
     @students = Student.order(sort_column + " " + sort_direction).paginate(page: params[:page])
   end
 
+  def sort_column
+    Student.column_names.include?(params[:sort]) ? params[:sort] : 'first_name'
+    Student.column_names.include?(params[:sort]) ? params[:sort] : 'last_name'
+    Student.column_names.include?(params[:sort]) ? params[:sort] : 'student_number'
+  end
   private
 
   def sort_column

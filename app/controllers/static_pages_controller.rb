@@ -4,6 +4,7 @@ class StaticPagesController < ApplicationController
   def home
     if user_signed_in?
       @courses = current_user.courses.order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page:5)
+      @students = current_user.students.order('last_name ASC').paginate(page: params[:page], per_page: 10)
     elsif student_signed_in?
       @courses = current_student.courses.order(sort_column + " " + sort_direction).paginate(page: params[:page], per_page:5)
     end
@@ -27,9 +28,11 @@ class StaticPagesController < ApplicationController
   private
 
   def sort_column
-    Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_name'
-    Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_sequence_number'
+#    Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_name'
+#    Course.column_names.include?(params[:sort]) ? params[:sort] : 'course_sequence_number'
     Course.column_names.include?(params[:sort]) ? params[:sort] : 'period'
+#    Student.column_names.include?(params[:sort]) ? params[:sort] : 'last_name'
+#    Student.column_names.include?(params[:sort]) ? params[:sort] : 'student_number'
   end
 
   def sort_direction

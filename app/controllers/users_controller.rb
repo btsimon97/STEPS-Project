@@ -5,6 +5,7 @@ class UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @courses = @user.courses.order(sort_column + " " + sort_direction).paginate(page: params[:page])
+    @students = @user.students.order('last_name ASC').paginate(page: params[:page])
   end
 
   def index

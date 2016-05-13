@@ -1,0 +1,5 @@
+<% if current_user.students.any? %>
+  <h3>My Students (<%= current_user.students.count %>)</h3>
+  <%= render 'shared/student_list' %>
+<% end %>
+

@@ -1,0 +1,11 @@
+      <div class="table-responsive center-block">
+        <table class="courses table table-hover table-striped table-bordered">
+          <tr>
+            <th><%= sortable "first name" %></th>
+            <th><%= sortable "last name" %></th>
+            <th><%= sortable "student number" %></th>
+          </tr>
+          <%= render @students %>
+        </table>
+      </div>
+    <%= will_paginate @students %>
