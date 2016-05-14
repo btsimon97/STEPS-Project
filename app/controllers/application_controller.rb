@@ -7,20 +7,28 @@ class ApplicationController < ActionController::Base
   protected
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.for(:sign_up) << :first_name
-      devise_parameter_sanitizer.for(:sign_up) << :last_name
-      devise_parameter_sanitizer.for(:sign_up) << :user_number 
-      devise_parameter_sanitizer.for(:sign_up) << :student_number
-      devise_parameter_sanitizer.for(:sign_up) << :avatar
-      devise_parameter_sanitizer.for(:sign_up) << :subject_area
-      devise_parameter_sanitizer.for(:account_update) << :first_name
-      devise_parameter_sanitizer.for(:account_update) << :last_name
-      devise_parameter_sanitizer.for(:account_update) << :user_number
-      devise_parameter_sanitizer.for(:account_update) << :student_number
-      devise_parameter_sanitizer.for(:account_update) << :avatar
-      devise_parameter_sanitizer.for(:account_update) << :subject_area
-      devise_parameter_sanitizer.for(:account_update) << :instructional_level
-      devise_parameter_sanitizer.for(:account_update) << :school_name
-      devise_parameter_sanitizer.for(:account_update) << :location
+      devise_parameter_sanitizer.permit(:sign_up, keys: 
+                                                   [
+                                                     :first_name,
+                                                     :last_name,
+                                                     :user_number,
+                                                     :student_number,
+                                                     :avatar,
+                                                     :subject_area
+                                                   ]
+                                       )
+      devise_parameter_sanitizer.permit(:account_update, keys: 
+                                                          [
+                                                            :first_name,
+                                                            :last_name,
+                                                            :user_number,
+                                                            :student_number,
+                                                            :avatar,
+                                                            :subject_area,
+                                                            :instructional_level,
+                                                            :school_name,
+                                                            :location
+                                                          ]
+                                       )
     end
   end
