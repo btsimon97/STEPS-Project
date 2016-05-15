@@ -30,5 +30,17 @@
       If you are <%= @user.first_name %>, Go to your dashboard to start a new course.
     </p>
   <% end %>
+  <% if @user.courses.any? && @user.students.any? %>
+    <h2><%= @user.first_name %>'s Students</h2>
+    <%= render 'shared/student_list' %>
+  <% elsif @user.courses.any? %>
+    <h3>No Students Found</h3>
+    <p>
+      <%= @user.first_name %> doesn't have any students enrolled in their courses yet.
+    </p>
+    <p>
+      If you are <%= @user.first_name %>, Go to your dashboard to enroll students.
+    </p>
+  <% end %>
   </div>
 </div>

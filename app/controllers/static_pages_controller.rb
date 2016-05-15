@@ -1,5 +1,4 @@
 class StaticPagesController < ApplicationController
-  helper_method :sort_column, :sort_direction
 
   def home
     if user_signed_in?
