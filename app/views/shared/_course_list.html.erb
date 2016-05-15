@@ -5,7 +5,12 @@
               <th>Period</th>
               <th>Course Name</th>
               <th>Course Sequence Number</th>
-              <th>Manage Course</th>
+              <% if user_signed_in? %>
+                <th>Manage Course</th>
+              <% end %>
+              <% if student_signed_in? %>
+                <th>Instructor</th>
+              <% end %>
             </tr>
           </thead>
           <tbody>
