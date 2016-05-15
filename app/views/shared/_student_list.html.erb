@@ -1,12 +1,15 @@
-      <div class="table-responsive center-block">
-        <table class="courses table table-hover table-striped table-bordered">
-          <tr>
-            <th><%= sortable "first name" %></th>
-            <th><%= sortable "last name" %></th>
-            <th><%= sortable "student number" %></th>
-            <th><%= sortable "passes" %></th>
-          </tr>
-          <%= render @students %>
+      <div class="center-block">
+        <table class="table table-striped table-hover table-bordered" id="students">
+          <thead>
+            <tr>
+              <th>First Name</th>
+              <th>Last Name</th>
+              <th>Student Number</th>
+              <th>Passes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @students %>
+          </tbody>
         </table>
       </div>
-    <%= will_paginate @students %>

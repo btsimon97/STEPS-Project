@@ -1,12 +1,17 @@
-      <div class="table-responsive center-block">
-        <table class="courses table table-hover table-striped table-bordered">
-          <tr>
-            <th><%= sortable "period" %></th>
-            <th><%= sortable "course name" %></th>
-            <th><%= sortable "course sequence number" %></th>
-            <th>Manage Course</th>
-          </tr>
-          <%= render @courses %>
+      <div class="center-block">
+        <table id="courses" class="table table-hover table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Course Name</th>
+              <th>Course Sequence Number</th>
+              <% if @user == current_user %>
+                <th>Manage Course</th>
+              <% end %>
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @courses %>
+          </tbody>
         </table>
       </div>
-    <%= will_paginate @courses %>
