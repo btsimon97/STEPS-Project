@@ -2,12 +2,18 @@
   <% if current_student.courses.any? %>
     <h3>My Courses (<%= current_student.courses.count %>)</h3>
     <%= render 'shared/course_list' %>
+    <br />
+    <p class="center">
+      Need to add another course? Search for your course below, then click enroll to add the course to your list.
+    </p>
+    <%= render 'shared/add_enrollment' %>
   <% else %>
     <h3>No Courses Found</h3>
     <p>
       You are not currently enrolled in any courses.
     </p>
     <p>
+      Browse for your course in the list below, then select "Enroll", when you are ready to enroll in a course.
       <%= render 'shared/add_enrollment' %>
     </p>
   <% end %>

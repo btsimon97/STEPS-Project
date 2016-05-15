@@ -1,0 +1,27 @@
+<p>
+
+	<%#= form_for ([@course,@student]) do |f| %>
+		<%#= render 'shared/error_messages', object: f.object %>
+		<%#= f.label :course.students %>
+		<%#= f.text_field :course.students, placeholder: "Course Number", autofocus: true, class: "form-control" %>
+		<%#= f.submit "Enroll in Course", class: "btn btn-primary" %>
+	<%# end %> 
+
+</p>
+      <div class="center-block">
+        <table id="available-courses" class="table table-hover table-striped table-bordered">
+          <thead>
+            <tr>
+              <th>Period</th>
+              <th>Course Name</th>
+              <th>Course Sequence Number</th>
+              <th>Instructor</th>
+              <!-- <th>Course Actions</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <%= render @available_courses %>
+          </tbody>
+        </table>
+      </div>
+

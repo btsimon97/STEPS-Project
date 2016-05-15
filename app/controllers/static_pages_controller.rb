@@ -6,6 +6,7 @@ class StaticPagesController < ApplicationController
       @students = current_user.students
     elsif student_signed_in?
       @courses = current_student.courses
+      @available_courses = Course.all
     end
   end
 
