@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   authenticate :student do
     resources :users, only: [:index, :show]
     resources :students, only: [:index, :show]
-    resources :courses
+    resources :courses do
+      member do
+        post "add-enrollment/:student_id", action: :add_enrollment, as: :add_enrollment
+        post "remove-enrollment/:student_id", action: :remove_enrollment, as: :remove_enrollment
+      end
+    end
     resources :passes, only: [:show]
   end
   # The priority is based upon order of creation: first created -> highest priority.

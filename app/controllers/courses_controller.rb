@@ -1,5 +1,4 @@
 class CoursesController < ApplicationController
-  before_action :authenticate_user!
   before_action :correct_user, only: [:edit, :destroy]
   def new
     @course = Course.new
@@ -37,6 +36,29 @@ class CoursesController < ApplicationController
     end
   end
 
+  def add_enrollment
+    @course = Course.find(params[:id])
+    @student = Student.find(params[:student_id])
+    @course.students << @student
+    if @course.save
+      flash[:success] = "Enrolled Successfully" 
+      redirect_to root_url
+    else
+      flash[:danger] = "Something went wrong. Try Enrolling Again"
+    end
+  end
+
+  def remove_enrollment
+    @course = Course.find(params[:id])
+    @student = Student.find(params[:student_id])
+    @course.students.delete(@student)
+    if @course.save
+      flash[:success] = "Enrollment Deleted Successfully"
+      redirect_to root_url
+    else
+      flash[:danger] = "Oops! We're unable to delete the enrollment right now. Try again."
+    end
+  end
   private
 
     def course_params
