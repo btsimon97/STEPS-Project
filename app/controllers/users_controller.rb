@@ -5,6 +5,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @courses = @user.courses
     @students = @user.students
+    if @user == current_user
+      redirect_to root_url
+    end
   end
 
   def index
