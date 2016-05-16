@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.2.5.2'
+gem 'rails', '~> 4.2.5'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use SCSS for stylesheets
@@ -15,10 +15,10 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.1.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
-gem 'turbolinks'
-gem 'jquery-turbolinks'
+gem 'turbolinks', '~> 2.5.3'
+gem 'jquery-turbolinks', '~> 2.1.0'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
@@ -32,23 +32,23 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
-gem 'devise'
-gem 'bootstrap-sass'
-gem 'will_paginate'
-gem 'bootstrap-will_paginate'
+gem 'devise', '~> 4.1.1'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'will_paginate', '~> 3.1.0'
+gem 'bootstrap-will_paginate', '~> 0.0.10'
 gem 'data-confirm-modal', github: 'ifad/data-confirm-modal'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
-gem 'jquery-ui-rails'
-gem 'paperclip'
-gem 'font-awesome-sass'
+gem 'jquery-ui-rails', '~> 5.0.5'
+gem 'paperclip', '~> 4.3.6'
+gem 'font-awesome-sass', '~> 4.6.2'
 gem 'barby'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug'
-  gem 'minitest-reporters'
-  gem 'guard'
-  gem 'guard-minitest'
+  gem 'byebug', '~> 9.0.3'
+  gem 'minitest-reporters', '~> 1.1.9'
+  gem 'guard', '~> 2.13.0'
+  gem 'guard-minitest', '~> 2.4.4'
 end
 
 group :development do
@@ -62,5 +62,5 @@ end
 group :production do
   gem 'activerecord-sqlserver-adapter'
   gem 'ruby-odbc'
-  gem 'tiny_tds', '0.7.0'
+  gem 'tiny_tds', '1.0.2'
 end
