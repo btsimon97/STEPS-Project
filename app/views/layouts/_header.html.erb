@@ -3,12 +3,20 @@
     <%= link_to "STEPS Project", root_path, id: "logo" %>
     <nav>
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to "Home",   root_path %></li>
-        <li><%= link_to "Help",   help_path %></li>
+        <% if user_signed_in? || student_signed_in? %>
+          <li>
+            <%= link_to(raw('<span class="fa fa-dashboard fa-2x vertical-center"></span> &nbsp; Dashboard'), root_path) %>
+          </li>
+        <% else %>
+          <li><%= link_to(raw('<span class="fa fa-home fa-2x vertical-center"></span> &nbsp; Home'), root_path) %></li>
+        <% end %>
+        <li><%= link_to(raw('<span class="fa fa-question-circle fa-2x vertical-center"></span> &nbsp; Help'), help_path) %></li>
         <% if user_signed_in? %>
-          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to(raw('<span class="fa fa-users fa-2x vertical-center"></span> &nbsp; Users'), users_path) %></li>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span class="fa fa-book fa-2x vertical-center"></span>
+              &nbsp;
               <%= current_user.fullname %> 
               <span class="caret"></span>
             </a>
@@ -22,6 +30,8 @@
         <% elsif student_signed_in? %>
           <li class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+              <span class="fa fa-graduation-cap fa-2x vertical-center"></span>
+              &nbsp;
               <%= current_student.fullname %>
               <span class="caret"></span>
             </a>
@@ -33,7 +43,7 @@
           </li>
           <li><%= link_to image_tag(current_student.avatar.url(:thumb), :class => "round-image-50"), current_student, class: "page-avatar" %></li>
         <% else %>
-          <li><%= link_to 'Log In/Sign Up', login_path %></li>
+          <li><%= link_to(raw('<span class="fa fa-sign-in fa-2x vertical-center"></span> &nbsp; Log In/Sign Up'), login_path) %></li>
         <% end %>
       </ul>
     </nav>

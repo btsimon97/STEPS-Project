@@ -15,6 +15,9 @@
       <% unless @user.school_name.blank? %>
         <h2>School: <%= @user.school_name %></h2>
       <% end %>
+      <% unless @user.location.blank? %>
+        <h2>Location: <%= @user.location %></h2>
+      <% end %>
   </section>
 </aside>
 <div class="col-md-8 center well">

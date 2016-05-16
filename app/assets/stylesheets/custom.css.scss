@@ -21,6 +21,10 @@ textarea {
   resize: vertical;
 }
 
+.vertical-center {
+  vertical-align: middle;
+}
+
 .center {
   text-align: center;
   h1 {
@@ -101,24 +105,46 @@ footer {
 /* devise alerts */
 .alert-alert {
   @extend .alert-warning;
+  margin-top: 5px;
+  padding: 10px;
+  ul {
+    list-style: none;
+    li {
+      display: block;
+      @extend .center
+    }
+    li:before {
+      font-family: 'FontAwesome';
+      content: '\f071';
+      vertical-align: middle;
+      padding-right: 5px;
+      @extend .fa;
+      @extend .fa-3x;
+      @extend .fa-warning;
+      @extend .center
+    }
+  }
 }
 
 .alert-notice {
   @extend .alert-info;
+  margin-top: 5px;
+  padding: 10px;
   ul {
+    list-style: none;
     li {
       display: block;
-//      @extend .center
+      @extend .center
     }
     li:before {
       font-family: 'FontAwesome';
       content: '\f05a';
-      margin: -20px 20px 0 15px;
-      padding-top: 5px;
+      vertical-align: middle;
+      padding-right: 5px;
       @extend .fa;
       @extend .fa-3x;
-//      @extend .fa-info-circle;
-//      @extend .center
+      @extend .fa-info-circle;
+      @extend .center
     }
   }
 }
@@ -266,4 +292,8 @@ th .desc:after {
 
 .btn-lgin {
   margin-bottom: 10px;
+}
+
+.dashboard {
+  margin-top: 2%;
 }
