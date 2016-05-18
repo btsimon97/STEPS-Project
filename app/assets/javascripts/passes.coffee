@@ -17,3 +17,6 @@ jQuery ->
     else
       $("#destination-custom").prop('disabled', true)
       $('#specify-destination').addClass('display-none')
+
+  $('#passes').dataTable(autoWidth: true, pagingType: 'full_numbers', processing: true)
+

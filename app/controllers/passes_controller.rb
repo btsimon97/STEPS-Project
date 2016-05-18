@@ -31,8 +31,17 @@ class PassesController < ApplicationController
   def show
   end
 
+  def index
+    @passes = Pass.all    
+  end
+
+  def my_passes
+    @passes = Pass.where(:user => current_user.id)
+  end
+
   def edit
-    @pass = current_user.passes.find_by(id: params[:id])
+    @pass = Pass.find_by(id: params[:id])
+    @user = Pass.user
   end
 
   def update
