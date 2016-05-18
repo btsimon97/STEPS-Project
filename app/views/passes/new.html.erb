@@ -6,7 +6,7 @@
       <%= render 'shared/error_messages', object: f.object %>
           <%= f.input :student_id, :collection => current_user.students, :label_method => 'fullname', prompt: "Select a Student" %>
           <%= f.input :time_out, as: :string, input_html: { class:"display-none", id:"departure-time"}%>
-          <%= f.input :destination, :collection => @destinations, :hint => "Select your destination from the list above", :prompt => "Select a Destination", input_html: { id: "destination-select" } %>
+          <%= f.input :destination, :collection => current_user.pass_destinations, :hint => "Select your destination from the list above", :prompt => "Select a Destination", :include_blank => false, input_html: { id: "destination-select" } %>
           <div id="specify-destination" class="display-none">
           <h4>Destinaton Missing? Enter it in the box below</h4>
             <%= f.input :destination, :disabled => true, input_html: { id: "destination-custom" }  %>

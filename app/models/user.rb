@@ -23,6 +23,16 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def pass_destinations
+    destinations = [['Main Office','Office'],['Student Affairs','Student Affairs'],['Guidance', 'Guidance'],['Media Center', 'Media Center'],['Restroom', 'Restroom']]
+    destinations.sort!
+    destinations.unshift(['School Locations:',' '])
+    destinations.push(['Teachers:',' '])
+    destinations += User.by_school(self.school_name).pluck(:last_name, :location).sort!
+    destinations += [['Other', 'Other']]
+    return destinations
+  end
+
   def self.subject
     ["CTE", "ESE", "Language Arts", "Mathematics", 
     "Physical Education", "Reading", "Science", "Social Studies"]
