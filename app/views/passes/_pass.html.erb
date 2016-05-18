@@ -3,7 +3,7 @@
   <% unless controller.action_name == 'my_passes' %>
     <td class="pass_instructor"><%= link_to pass.user.fullname, pass.user %></td>
   <% end %>
-  <td class="pass_creation_time"><%= pass.created_at.strftime("%b %d, %Y, %I:%M %p") %></td>
+  <td class="pass_creation_time"><%= pass.created_at.in_time_zone("Eastern Time (US & Canada)").strftime("%b %d, %Y, %I:%M %p") %></td>
   <td class="pass_time_out"><%= pass.time_out.strftime("%b %d, %Y, %I:%M %p") %></td>
   <td class="pass_destination"><%= pass.destination %></td>
   <td class="pass-return"><%= t pass.returning.class %></td>
