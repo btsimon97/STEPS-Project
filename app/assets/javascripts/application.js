@@ -17,5 +17,8 @@
 //= require dataTables/bootstrap/3/jquery.dataTables.bootstrap
 //= require bootstrap
 //= require turbolinks
+//= require moment
+//= require bootstrap-datetimepicker
+//= require pickers
 //= require data-confirm-modal
 //= require_tree .
